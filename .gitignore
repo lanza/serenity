@@ -1,3 +1,14 @@
+!Makefile
+!LICENSE
+!Base/**
+!Meta/ShellCompletions/**
+
+*.o
+*.ao
+*.a
+*.so
+*.d
+
 *.swo
 *.swp
 *.config
