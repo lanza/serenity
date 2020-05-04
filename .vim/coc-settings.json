@@ -1,0 +1,43 @@
+{
+  "languageserver": {
+    /* "efm": { */
+    /*   "command": "efm-langserver", */
+    /*   "args": ["-c", "/Users/lanza/.config/efm-langserver/config.yaml"], */
+    /*   "filetypes": ["vim", "markdown"], */
+    /* }, */
+    "ccls": {
+      /* "command": "/usr/local/bin/ccls", */
+      "command": "/Users/lanza/.local/bin/ccls",
+      "args": ["-log-file=ccls.log", "-v=1"],
+      "filetypes": ["c", "cpp", "cuda", "objc", "objcpp"],
+      "rootPatterns": [".ccls-root"],
+      "initializationOptions": {
+        "cache": {
+          "directory": ".ccls-cache"
+        },
+        "completion": {
+          "detailedLabel": true,
+          "placeholder": true
+        },
+        "client": {
+          "snippetSupport": true
+        },
+        "index": {
+          "onChange": false,
+          "initialBlacklist": [
+            "(llvm|clang|lld|libcxx|lldb)/(test|unittests)/",
+            "/llvm/(bindings|examples|utils)/",
+            "/StaticAnalyzer/",
+            "/Toolchain/Tarballs/"
+          ]
+        },
+        "foldingRangeProvider": false,
+        "workspace": {
+          "workspaceFolders": {
+            "supported": false
+          }
+        }
+      }
+    }
+  }
+}
