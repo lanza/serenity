@@ -33,6 +33,10 @@ if (ENABLE_LAGOM_CCACHE)
     endif()
 endif()
 
+if (CMAKE_SYSTEM_NAME MATCHES Darwin)
+  add_definitions(-DCLOCK_MONOTONIC_COARSE=CLOCK_MONOTONIC -DCLOCK_REALTIME_COARSE=CLOCK_REALTIME)
+endif()
+
 include(${SERENITY_PROJECT_ROOT}/Meta/CMake/wasm_spec_tests.cmake)
 
 add_compile_options(-Wno-unknown-warning-option -Wno-literal-suffix -Wno-deprecated-copy)
