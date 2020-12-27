@@ -1,6 +1,10 @@
 cmake_minimum_required (VERSION 3.0)
 project (Lagom)
 
+if (CMAKE_SYSTEM_NAME MATCHES Darwin)
+  add_definitions(-DCLOCK_MONOTONIC_COARSE=CLOCK_MONOTONIC -DCLOCK_REALTIME_COARSE=CLOCK_REALTIME)
+endif()
+
 if (NOT ENABLE_OSS_FUZZ)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-unknown-warning-option -O2 -Wall -Wextra -Werror -std=c++2a -fPIC -g -Wno-deprecated-copy")
 else()
